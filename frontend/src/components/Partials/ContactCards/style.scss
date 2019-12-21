@@ -1,0 +1,152 @@
+@import "../../App/style.scss";
+
+.contact-card {
+    width: 100%;
+    height: fit-content;
+    height: -moz-fit-content;
+    border-radius: 4px;
+
+    .header {
+        display: flex;
+        justify-content: flex-start;
+        margin: 8px;
+        padding: 12px;
+
+        .name {
+            font-size: 120%;
+            font-weight: 500;
+            padding: 8px 8px 0px 0px;
+        }
+
+        .header-left {
+            display: flex;
+            justify-content: flex-start;
+            width: 95%;
+
+            .avatar {
+                min-width: 50px;
+                min-height: 50px;
+                max-width: 50px;
+                max-height: 50px;
+                border-radius: 25px;
+                overflow: hidden;
+                position: relative;
+                margin: 4px 24px 0 0;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+
+
+                img {
+                    position: absolute;
+                    margin: auto;
+                    min-width: 50px;
+                    min-height: 50px;
+                    max-width: auto;
+                    max-height: auto;
+                    left: -100%;
+                    right: -100%;
+                    top: -100%;
+                    bottom: -100%;
+                    border-radius: 25px;
+                }
+            }
+
+            .name {
+                font-size: 120%;
+                font-weight: 500;
+                padding: 8px 8px 0px 0px;
+            }
+
+            .job-info {
+                display: flex;
+                justify-content: flex-start;
+                padding: 0 0px 0 0;
+
+                .company {
+                    font-size: 100%;
+                    font-weight: 450;
+                    margin: -1px 0 0 3px;
+                }
+
+                .position {
+                    font-size: 90%;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .header-right {
+            width: 5%;
+        }
+
+    }
+
+    .body {
+        margin: 8px 0px 8px 0px;
+        padding: 0 0 16px 0;
+
+        .body-component {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+            padding: 0 0 12px 0;
+
+            .component-title {
+                font-size: 120%;
+                font-weight: 500;
+                padding: 8px 8px 4px 24px;
+            }
+
+            .component-info {
+                display: flex;
+                justify-content: flex-start;
+                padding: 8px 8px 0px 24px;
+            }
+        }
+    }
+
+    .buttons-container {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        padding: 24px;
+
+        .delete {
+            width: auto;
+            height: 24px;
+            font-weight: bold;
+            font-size: 110%;
+            color: rgba(139, 139, 139, 0.6);
+            cursor: pointer;
+        }
+
+        .right-buttons-container {
+            display: flex;
+            justify-content: space-between;
+
+            .cancel {
+                width: auto;
+                height: 24px;
+                font-size: 110%;
+                font-weight: bold;
+                color: $selection_color;
+                cursor: pointer;
+            }
+
+            .save {
+                width: auto;
+                height: 24px;
+                margin: -2px 0 0 0;
+                padding: 2px 8px 4px 8px;
+                margin-left: 16px;
+                background-color: $primary_button_color;
+                font-weight: lighter;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+.contact-card:hover {
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+}

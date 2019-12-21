@@ -1,0 +1,108 @@
+@import '~antd/dist/antd.min.css';
+@import '~react-telephone-input/css/default.css';
+
+
+$text_color: rgb(34, 34, 34);
+$base_color: rgba(0, 0, 0, 0.5);
+$border_color: rgba(0, 0, 0, 1);
+$soft_button_color: rgb(11, 106, 255);
+$primary_button_color: $soft_button_color;
+$active_color: transparentize($soft_button_color, 0.2);
+$selection_color: transparentize($soft_button_color, 0.3);
+$hover_color: transparentize($soft_button_color, 0.6);
+$highlight_color: transparentize($soft_button_color, 0.9);
+$spinner_background_color: rgba(0, 0, 0, 0.2);
+$line_color: rgb(239, 239, 239);
+$gray_text_color: #aaaaaa;
+
+$banner_image: url('https://jobhax.com/src/assets/images/homebanner.jpg');
+
+$primary_font_type: "Helvetica Neue",
+helvetica !important;
+
+body {
+  font-family: $primary_font_type;
+  color: $text_color;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.main-container {
+  height: 100%;
+  width: 100%;
+}
+
+.react-tel-input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.react-tel-input input[type='text'],
+.react-tel-input input[type='tel'] {
+  border: 1px solid #d9d9d9;
+  box-shadow: none;
+  border-radius: 4px;
+  line-height: 90%;
+  height: 100%;
+  width: 100%;
+}
+
+.react-tel-input .selected-flag {
+  border: none;
+  background: none;
+}
+
+.react-tel-input input[type='text']:focus,
+.react-tel-input input[type='tel']:focus {
+  border-color: $active_color
+}
+
+.react-tel-input input[type='text']:hover,
+.react-tel-input input[type='tel']:hover {
+  border-color: $hover_color;
+}
+
+.react-tel-input .country-list {
+  border: none;
+  border-radius: 4px;
+  margin: 2px 0 0 0;
+  max-height: 180px;
+  max-width: 300px;
+  position: absolute;
+  left: -150px;
+  right: -150px;
+}
+
+.ant-btn {
+  color: $primary_button_color;
+  border-color: $primary_button_color;
+}
+
+.ant-btn-primary {
+  color: #fff !important;
+  background-color: $primary_button_color;
+  border: $primary_button_color !important;
+}
+
+.ant-btn:hover {
+  color: rgb(64, 169, 255) !important;
+  border-color: rgb(64, 169, 255) !important;
+}
+
+.ant-btn-primary:hover {
+  color: #fff !important;
+  background-color: rgb(64, 169, 255) !important;
+  border: rgb(64, 169, 255) !important;
+
+}

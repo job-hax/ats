@@ -1,0 +1,26 @@
+@import "../../App/style.scss";
+
+.statistics-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: calc(100vh * 2.4/100);
+    line-height: calc(100% * 18/14) !important;
+
+    .authorization-stat-container {
+        display: flex;
+        justify-content: flex-start;
+        font-size: calc(100% * 16/14) !important;
+        line-height: calc(100% * 18/14) !important;
+
+
+        @media only screen and (max-device-width : 800px) and (-webkit-min-device-pixel-ratio : 2) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+}
+
+.ant-rate {
+    line-height: calc(100vh * 20/1440) !important;
+}

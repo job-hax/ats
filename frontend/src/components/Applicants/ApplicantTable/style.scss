@@ -1,0 +1,78 @@
+@import "../../App/style.scss";
+
+.ant-table-body {
+  // max-height: 355px !important;
+  // min-height: 335px !important;
+  background-color: white !important;
+}
+
+.ant-table-thead > tr > th{
+  background-color: #0b6aff !important;
+    color: #ffffff;
+    border-radius: 0px !important;
+    height: 45px !important;
+}
+
+.ant-table-tbody > tr > td{
+  padding: 15px !important;
+}
+
+.ant-table-footer {
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03),
+    0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+}
+.ant-table table{
+  padding: 3% !important;
+}
+.applicant-card {
+  margin: 24px 0;
+  border-radius: 8px;
+  background-color: #eeeeee;
+  padding: 16px;
+  display: flex;
+
+  .applicant-card-img {
+    width: 120px;
+    img {
+      width: 50%;
+    }
+  }
+
+  .applicant-card-detail {
+    width: calc(100% - 240px);
+    // padding: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .all-caps {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .small-text {
+      font-size: 12px;
+      color: $gray_text_color;
+    }
+  }
+
+  .applicant-card-button {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-view-edit {
+    margin-bottom: 10px;
+    border: 1px solid steelblue;
+    background-color: #ffffff;
+    color: black !important;
+    width: 120px;
+  }
+  .btn-delete {
+    margin-bottom: 10px;
+    background-color: #d9534f;
+    width: 120px;
+  }
+}

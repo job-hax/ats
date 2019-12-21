@@ -1,0 +1,21 @@
+.change-password-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .change-password-form-container {
+        position: fixed;
+        background: rgb(255, 255, 255);
+        width: 500px;
+        height: 250px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 4px;
+        background-color: white;
+        border: 1px solid rgba(105, 105, 105, 0.3);
+        padding: 40px;
+    }
+}

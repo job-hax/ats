@@ -1,0 +1,62 @@
+@import "../App/style.scss";
+
+$multipleContainerAnimationTransitionDuration: 0.5s;
+$multipleContainerAnimationFromZeroScale: 1.6;
+
+.job-input-button {
+  background-color: #0b6aff !important;
+  min-height: 50px !important;
+  max-height: none !important;
+}
+
+.button-inside {
+  color: white !important;
+  font-size: 40px !important;
+  font-weight: bold !important;
+}
+
+.modal .modal-main {
+  border-radius: 5px !important;
+}
+
+.main-container .main {
+  margin-left: 12px !important;
+}
+
+.dashboard-container {
+  height: calc(100%);
+  width: 100%;
+  padding: 1%;
+  display: flex;
+  overflow-y: hidden;
+  justify-content: center;
+
+  &.--demo-height {
+    height: calc(100%);
+  }
+}
+
+.icon {
+  min-height: 12px;
+  min-width: auto;
+  max-height: 16px;
+  max-width: auto;
+  padding: 0 8px 0 0;
+  cursor: pointer;
+}
+
+.multiple-operation-container {
+  transition: transform $multipleContainerAnimationTransitionDuration;
+  -webkit-transition: transform $multipleContainerAnimationTransitionDuration;
+  -moz-transition: transform $multipleContainerAnimationTransitionDuration;
+  -o-transition: transform $multipleContainerAnimationTransitionDuration;
+  -ms-transition: transform $multipleContainerAnimationTransitionDuration;
+
+  &.--animation-from-zoom {
+    transform: scale($multipleContainerAnimationFromZeroScale);
+    -webkit-transform: scale($multipleContainerAnimationFromZeroScale);
+    -moz-transform: scale($multipleContainerAnimationFromZeroScale);
+    -o-transform: scale($multipleContainerAnimationFromZeroScale);
+    -ms-transform: scale($multipleContainerAnimationFromZeroScale);
+  }
+}

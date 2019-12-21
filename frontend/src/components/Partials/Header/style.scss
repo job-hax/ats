@@ -1,0 +1,246 @@
+@import "../../App/style.scss";
+
+// .anticon {
+//   // font-size: 12px;
+//   // color: black;
+// }
+
+.header-big-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  z-index: 21;
+
+  .anticon {
+    font-size: 22px !important;
+    // color: black;
+  }
+
+  .demo-banner {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b6d2ff;
+    color: #0b6aff;
+    font-size: 18px;
+
+    .demo-banner-height {
+      height: 50px;
+    }
+
+    .buttons-container {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      width: 285px;
+      display: flex;
+      justify-content: space-between;
+
+      .ant-btn {
+        background-color: #b6d2ff;
+        height: 40px !important;
+        min-height: 40px !important;
+        width: 140px !important;
+        min-width: 140px !important;
+        font-size: 18px !important;
+      }
+
+      .ant-btn:hover {
+        color: white !important;
+        border-color: white !important;
+      }
+
+      .ant-btn-primary {
+        color: #fff !important;
+        background-color: $primary_button_color;
+        border: $primary_button_color !important;
+      }
+    }
+  }
+
+  .header-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    color: $text_color;
+
+    .left-container {
+      display: flex;
+    }
+
+    .right-container {
+      display: flex;
+
+      &.out {
+        width: 140px;
+        justify-content: space-between;
+        margin: 20px 80px;
+        font-size: 18px;
+        font-weight: lighter;
+
+        @media only screen and (max-device-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
+          margin: 20px;
+        }
+      }
+
+      .option {
+        cursor: pointer;
+        transition: color 0.3s;
+        -webkit-transition: color 0.3s;
+        -moz-transition: color 0.3s;
+        -o-transition: color 0.3s;
+        -ms-transition: color 0.3s;
+      }
+
+      .option:hover {
+        color: $active_color;
+      }
+    }
+
+    .header-icon {
+      width: 30px;
+      opacity: 1;
+      cursor: pointer;
+
+      &.general {
+        margin: 20px 10px;
+      }
+
+      &.menu-icon {
+        margin: 6px 0 16px 0;
+        width: 24px;
+        overflow: hidden;
+        position: relative;
+        min-width: 24px;
+        min-height: 36px;
+        max-width: 24px;
+        max-height: 36px;
+
+        img {
+          height: 20px;
+          width: auto;
+        }
+      }
+
+      &.user-icon {
+        margin-top: 12px;
+        margin-bottom: 10px;
+        margin-right: 40px;
+        min-width: 36px;
+        min-height: 36px;
+        max-width: 36px;
+        max-height: 36px;
+        border-radius: 18px;
+        overflow: hidden;
+        position: relative;
+
+        img {
+          position: absolute;
+          margin: auto;
+          min-width: 36px;
+          min-height: 36px;
+          max-width: auto;
+          max-height: auto;
+          left: -100%;
+          right: -100%;
+          top: -100%;
+          bottom: -100%;
+          border-radius: 18px;
+        }
+
+        @media only screen and (max-device-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
+          margin-right: 20px;
+        }
+      }
+
+      img {
+        height: 20px;
+        width: auto;
+      }
+
+      @media only screen and (max-device-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
+        width: 20px;
+
+        img {
+          width: 16px;
+        }
+
+        &.general {
+          margin: 20px 10px;
+        }
+      }
+    }
+
+    .jobhax-logo-container {
+      margin-top: 10px;
+      margin-right: 20px;
+      margin-left: 20px;
+
+      .jobhax-logo {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        background-image: url("../../../assets/icons/JobHax-logo-black.svg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        transition: transform 0.3s;
+        -webkit-transition: transform 0.3s;
+        -moz-transition: transform 0.3s;
+        -o-transition: transform 0.3s;
+        -ms-transition: transform 0.3s;
+      }
+
+      .jobhax-logo:hover {
+        z-index: 51;
+        transform: scale(1.2) rotate(360deg);
+        -webkit-transform: scale(1.2) rotate(360deg);
+        -moz-transform: scale(1.2) rotate(360deg);
+        -o-transform: scale(1.2) rotate(360deg);
+        -ms-transform: scale(1.2) rotate(360deg);
+      }
+    }
+  }
+}
+
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  border-bottom: 0px solid $base_color;
+}
+
+.ant-menu-horizontal > .ant-menu-submenu:hover {
+  border-bottom: 0px solid $base_color;
+
+
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  border-bottom: 2px solid $base_color;
+}
+
+
+  .ant-menu-horizontal > .ant-menu-submenu-selected {
+    border-bottom: 2px solid $base_color;
+  }
+
+  .ant-menu-horizontal > .ant-menu-submenu:hover {
+    border-bottom: 2px solid $base_color;
+  }
+
+  .ant-menu-horizontal > .ant-menu-submenu {
+    vertical-align: top;
+    max-height: 52px;
+  }
+
+  .ant-menu-horizontal > .ant-menu-submenu-selected {
+    max-height: 52px;
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    padding: 0px 10px !important;
+  }
+}

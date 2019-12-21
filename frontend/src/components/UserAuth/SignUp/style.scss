@@ -1,0 +1,110 @@
+@import "../../App/style.scss";
+
+.sign_up-background {
+    background-color: white;
+    height: 16vh;
+}
+
+.sign_up-vertical-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0 200px 0;
+
+    .sign_up-form-container {
+        margin: auto;
+        width: 320px;
+        height: fit-content;
+        border: 1px solid rgba(150, 150, 150, 0.4);
+        background-color: white;
+        padding: 24px 24px 12px 24px;
+
+        .content-container {
+
+            h1 {
+                color: rgb(0, 0, 0);
+                text-align: center;
+            }
+        }
+
+        .social-buttons-container {
+            padding-top: 8px;
+            display: flex;
+            justify-content: center;
+            cursor: default;
+
+            .social-buttons-google {
+                border: none;
+                width: 288px;
+                border-bottom: 1px solid rgba(150, 150, 150, 0.4);
+                padding: 0 0 8px 0;
+                background-color: white;
+                cursor: default;
+                color: $text_color;
+                font-size: 12pt;
+
+                img {
+                    cursor: pointer;
+                    width: 186px;
+                    height: 42px;
+                }
+            }
+        }
+
+        .separator {
+            height: 4px;
+            width: 272px;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0px 0px 0px;
+            border-top: 1px solid rgba(150, 150, 150, 0.8);
+        }
+
+        .email-button-container {
+            padding: 8px 0 32px 0;
+            display: flex;
+            justify-content: center;
+
+            .email-button {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px;
+                border: 1px solid rgba(200, 200, 200, 0.2);
+                border-radius: 4px;
+                box-shadow: 0px 1px 0px 0 rgba(110, 110, 110, 0.4);
+                width: 184px;
+                height: 36px;
+                background-color: white;
+                text-align: center;
+                font-weight: 500;
+                font-size: 95%;
+                color: rgba(100, 100, 100, 0.9);
+                cursor: pointer;
+            }
+        }
+
+        .levels {
+            text-align: center;
+
+            .level-title {
+                font-size: 120%;
+                padding: 16px;
+            }
+
+            .level-body {
+                font-size: 90%;
+                padding: 8px;
+            }
+        }
+
+    }
+
+}
+
+
+.bottom-fixed-footer-sign_up {
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+}

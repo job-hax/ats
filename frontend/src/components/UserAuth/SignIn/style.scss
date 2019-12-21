@@ -1,0 +1,97 @@
+@import "../../App/style.scss";
+
+.sign_in-background {
+    background-color: white;
+    height: 16vh;
+}
+
+.sign_in-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 8vh;
+
+    button {
+        color: white;
+        font-size: 12pt;
+        background-color: rgba(0, 0, 0, 0.2);
+        border: none;
+        border-radius: 50px;
+        padding: 15px 35px;
+        margin-top: 4vh;
+        cursor: pointer;
+    }
+
+    .logo {
+        width: 90px;
+    }
+}
+
+
+.sign_in-vertical-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0 200px 0;
+
+    .sign_in-form-container {
+        margin: auto;
+        width: 320px;
+        height: fit-content;
+        border: 1px solid rgba(150, 150, 150, 0.4);
+        background-color: white;
+        padding: 24px 24px 0px 24px;
+
+        .content-container {
+
+            h1 {
+                color: rgb(0, 0, 0);
+                text-align: center;
+            }
+        }
+
+        .social-buttons-container {
+            margin: 0px 0 12px 0;
+            display: flex;
+            justify-content: center;
+
+            .social-buttons-google {
+                display: flex;
+                justify-content: center;
+                width: 288px;
+                border: none;
+                padding: none;
+                background-color: white;
+                cursor: default;
+                color: rgb(0, 0, 0);
+                font-size: 12pt;
+
+                img {
+                    cursor: pointer;
+                    width: 186px;
+                    height: 42px;
+                }
+            }
+        }
+
+        .separator {
+            font-style: italic;
+            font-size: 90%;
+            display: flex;
+            justify-content: center;
+            color: rgba(150, 150, 150, 0.8);
+
+            .line {
+                height: 1px;
+                width: 92px;
+                margin: 8px 12px 24px 12px;
+                background-color: rgba(150, 150, 150, 0.4)
+            }
+        }
+    }
+}
+
+.bottom-fixed-footer {
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+}

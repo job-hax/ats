@@ -1,0 +1,539 @@
+.profile-page-big-container {
+  min-height: 92vh;
+  overflow-y: hidden;
+
+  .profile-page-medium-container {
+    display: flex;
+    justify-content: center;
+    min-width: 1280px;
+    min-height: 680px;
+
+    .profile-page-container {
+      //border: 1px solid;
+      width: 1400px;
+      padding-top: 56px;
+      height: 84vh;
+      display: flex;
+      justify-content: center;
+      font-size: 90%;
+      background-color: white;
+
+      .profile-page-left {
+        display: flex;
+        justify-content: space-between;
+        width: auto;
+
+        .profile-page-left-first {
+          width: 420px;
+          //border: 1px solid gray;
+
+          .profile-page-left-first-inside {
+            width: 280px;
+            height: 80vh;
+            //border: 1px solid red;
+            margin-left: 140px;
+
+            .profile-image {
+              height: 280px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              img {
+                height: auto;
+                width: auto;
+                max-width: 280px;
+                max-height: 280px;
+              }
+            }
+
+            .profile-image-update-container {
+              width: 280px;
+              display: flex;
+              justify-content: center;
+              margin: 8px 0 16px 0;
+            }
+
+            .register-date {
+              font-style: italic;
+              font-size: 90%;
+              color: rgba(126, 126, 126, 0.8);
+              font-weight: 100;
+              text-align: center;
+            }
+
+            .employment-status-big-container {
+              margin-top: 40px;
+              width: 280px;
+
+              .employment-header {
+                border-bottom: 1px solid black;
+                width: 280px;
+                display: flex;
+                justify-content: flex-start;
+                margin: 0 0 12px 0;
+
+                .employment-title {
+                  padding-left: 4px;
+                  font-weight: 550;
+                }
+              }
+
+              .employment-status-container {
+                width: 280px;
+                margin: 0 0 8px 0;
+                display: flex;
+                justify-content: space-between;
+
+                .employment-status-label {
+                  font-weight: 450;
+                  margin: 8px 0 0 0;
+                }
+
+                .employment-status-content {
+                  font-weight: 300;
+                  margin: 8px 0 0 0;
+                }
+              }
+            }
+          }
+        }
+
+        .profile-page-main {
+          margin-left: 56px;
+          width: 504px;
+          //border: 1px solid green;
+
+          .profile-header {
+            align-content: left;
+            height: 196px;
+
+            .name {
+              margin-top: 90px; //30px;
+              display: flex;
+              justify-content: flex-start;
+              font-size: 200%;
+
+              .first-name {
+                font-weight: 450;
+                max-width: 200px;
+              }
+
+              .last-name {
+                margin-left: 8px;
+                font-weight: 480;
+                max-width: 200px;
+              }
+            }
+
+            .location {
+              display: flex;
+              justify-content: flex-start;
+              margin: 0 0 28px 0;
+            }
+
+            .city-state {
+              display: none;
+            }
+          }
+
+          .profile-info {
+            margin-top: -60px; // none
+
+            .info-header {
+              border-bottom: 1px solid black;
+              width: 100%;
+              display: flex;
+              justify-content: flex-start;
+
+              .info-type-name {
+                padding-left: 4px;
+                font-weight: 550;
+              }
+            }
+
+            .info-content-container {
+              margin-top: 12px;
+
+              .info-content-title {
+                font-weight: 550;
+                margin-bottom: 14px;
+              }
+
+              .info-content-body {
+                .info-content-body-item {
+                  display: flex;
+                  justify-content: flex-start;
+
+                  .info-content-body-item-label {
+                    width: 140px;
+                    font-weight: 450;
+                    margin-bottom: 8px;
+                  }
+
+                  .info-content-body-item-text {
+                    width: 384px;
+                    margin-bottom: 8px;
+
+                    .input {
+                      width: 148px;
+                      line-height: 25px;
+                      height: 28px;
+                      border-radius: 4px;
+                      border: 1px solid #cacaca;
+                      box-shadow: 0 1px 2px #e3e3e3 inset;
+                    }
+
+                    .input:focus {
+                      border: 1px solid #ba42ff;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .settings-container {
+            width: 420px;
+
+            .settings-header {
+              border-bottom: 1px solid black;
+              width: calc(100% - 80px);
+              margin-left: 40px;
+              display: flex;
+              justify-content: flex-start;
+
+              .settings-icon {
+                min-width: 18px;
+                min-height: 18px;
+                height: auto;
+                width: auto;
+                max-width: 24px;
+                max-height: 24px;
+                margin-bottom: 4px;
+                background-color: black;
+              }
+
+              .settings-title {
+                padding-left: 8px;
+                font-weight: 550;
+              }
+            }
+
+            .settings {
+              width: 80%;
+              margin-left: 20%;
+
+              .setting {
+                display: flex;
+                justify-content: flex-start;
+                margin-top: 12px;
+
+                label {
+                  width: 200px;
+                }
+
+                input {
+                  width: 200px;
+                }
+              }
+            }
+
+            .settings-buttons-container {
+              display: flex;
+              justify-content: flex-end;
+              margin: 16px;
+              margin-left: 80px;
+
+              .settings-editing-button {
+                border-radius: 16px;
+                background-color: black;
+                color: white;
+                width: 94px;
+                height: 30px;
+                text-align: center;
+                padding-top: 2px;
+                margin-right: 20px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+
+      .profile-page-right {
+        width: 420px;
+
+        .profile-notifications {
+          position: relative;
+          margin-top: 20px;
+          height: 480px;
+          width: 90vw;
+          max-width: 364px;
+          z-index: 10;
+        }
+
+        .settings-container {
+          width: 420px;
+
+          .settings-header {
+            border-bottom: 1px solid black;
+            width: calc(100% - 80px);
+            margin-left: 40px;
+            display: flex;
+            justify-content: flex-start;
+
+            .settings-icon {
+              min-width: 18px;
+              min-height: 18px;
+              height: auto;
+              width: auto;
+              max-width: 24px;
+              max-height: 24px;
+              margin-bottom: 4px;
+              background-color: black;
+            }
+
+            .settings-title {
+              padding-left: 8px;
+              font-weight: 550;
+            }
+          }
+
+          .settings {
+            width: 80%;
+            margin-left: 20%;
+
+            .setting {
+              display: flex;
+              justify-content: flex-start;
+              margin-top: 12px;
+
+              label {
+                width: 200px;
+              }
+
+              input {
+                width: 200px;
+              }
+            }
+          }
+
+          .settings-buttons-container {
+            display: flex;
+            justify-content: flex-end;
+            margin: 16px;
+            margin-left: 80px;
+
+            .settings-editing-button {
+              border-radius: 16px;
+              background-color: black;
+              color: white;
+              width: 94px;
+              height: 30px;
+              text-align: center;
+              padding-top: 2px;
+              margin-right: 20px;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .edit-button,
+        .profile-settings-button {
+          transform: translateX(calc(364px - 100% + 36px));
+        }
+      }
+
+      .not-specified-notice {
+        font-style: italic;
+        font-size: 90%;
+        color: rgba(126, 126, 126, 0.8);
+        font-weight: 100;
+      }
+
+      .save-button-container {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  @media only screen and (max-device-width: 800px) and (-webkit-min-device-pixel-ratio: 2) {
+    width: 100%;
+    overflow: unset;
+
+    .profile-page-medium-container {
+      display: flex;
+      justify-content: center;
+      min-width: 100%;
+
+      .profile-page-container {
+        width: 100%;
+        flex-direction: column;
+        height: fit-content;
+        height: -moz-fit-content;
+
+        .profile-page-left {
+          flex-direction: column;
+          width: 100%;
+
+          .profile-page-left-first {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .profile-page-left-first-inside {
+              width: 280px;
+              height: fit-content;
+              height: -moz-fit-content;
+              margin: 0px;
+            }
+          }
+
+          .profile-page-main {
+            margin: 0px;
+            width: 100%;
+            padding: 12px;
+
+            .profile-info
+              .info-content-container
+              .info-content-body
+              .info-content-body-item
+              .info-content-body-item-label {
+              min-width: 140px !important;
+            }
+          }
+        }
+
+        .profile-page-right {
+          width: 100%;
+
+          .settings-container {
+            width: 100%;
+            max-width: 420px;
+          }
+        }
+
+        .save-button-container {
+          display: flex;
+          justify-content: flex-start;
+          margin: 16px 0px -45px 24px;
+        }
+      }
+    }
+  }
+}
+
+/* Style the tab */
+.ant-tabs-line {
+  height: 580px !important;
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+body {
+  background-color: #f9f9fc !important;
+}
+.header-big-container {
+  box-shadow: 0 0.36875rem 1.1875rem rgba(13, 16, 45, 0.01), 0 0.6375rem 1.00625rem rgba(13, 16, 45, 0.01),
+    0 0.15rem 0.33125rem rgba(13, 16, 45, 0.03), 0 0.085rem 0.0875rem rgba(13, 16, 45, 0.02);
+}
+
+.profile-page-medium-container {
+  // display:inline-block !important;
+  background-color: white;
+  display: block !important;
+  /* justify-content: center; */
+  /* min-width: 1280px; */
+  min-height: 680px;
+  width: 60% !important;
+  /* border: 1px solid red; */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 4%;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12), 0 10px 10px rgba(90, 97, 105, 0.06),
+    0 7px 70px rgba(90, 97, 105, 0.1);
+}
+
+.ant-tabs-tab {
+  color: #74788d !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  margin: 0 20px 16px 0px !important;
+  font-weight: 15px;
+}
+.ant-tabs-tab-active {
+  background-color: none !important;
+  color: white !important;
+  border-radius: 5px !important;
+  border: 1px solid silver;
+  box-shadow: 0 1px 6px 0 rgba(76, 175, 80, 0.4);
+  background: linear-gradient(60deg, #66bb6a, #43a047);
+}
+
+.ant-tabs-left-content {
+  // height: 727px !important;
+  height: auto !important;
+}
+
+.ant-tabs-left-bar {
+  height: 727px !important;
+  box-shadow: 0 16px 1px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.profile-page-container {
+  background-color: none !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.profile-page-left-first-inside {
+  margin-left: 0px !important;
+  height: auto !important;
+}
+.profile-page-left-first {
+  width: auto !important;
+}
+
+.profile-page-left {
+  justify-content: unset !important;
+}
+
+.profile-page-main {
+  width: 500px !important;
+  // margin-top: 90px !important;
+}
+
+.save-button-container {
+  float: right !important;
+  padding: 25px !important;
+}
+
+.settings-container {
+  margin-top: 20% !important;
+}
+
+.company-logo {
+  height: 280px;
+  display: flex;
+  justify-content: left !important;
+  align-items: center;
+
+  img {
+    height: auto;
+    width: auto;
+    max-width: 280px;
+    max-height: 280px;
+  }
+}
+
+.company-logo-update-container {
+  width: 280px;
+  display: flex;
+  justify-content: left;
+  margin: 8px 0 16px 0;
+}

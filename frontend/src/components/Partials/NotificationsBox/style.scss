@@ -1,0 +1,117 @@
+@import "../../App/style.scss";
+
+.notification-box-container {
+    background-color: white;
+    position: absolute;
+    width: 340px;
+    right: 12px;
+    margin-top: 20px;
+    height: fit-content;
+    min-height: 120px;
+    max-height: 500px;
+    font-size: 85%;
+    padding: 8px;
+    box-shadow: 4px 4px 10px 10px rgba(126, 126, 126, 0.1);
+    z-index: 1000;
+    cursor: default;
+
+    @media only screen and (max-device-width : 800px) and (-webkit-min-device-pixel-ratio : 2) {
+        width: 90vw;
+        max-width: 340px;
+    }
+
+
+    .notification-box-header {
+        border-bottom: 1px solid black;
+        margin: 4px;
+        font-weight: 450;
+        font-size: 110%;
+        padding: 4px 0px;
+        display: flex;
+        justify-content: space-between;
+
+        .beta-flag {
+            height: 24px;
+            width: auto;
+        }
+
+    }
+
+    .notification-notice {
+        margin-top: 30px;
+        font-size: 90%;
+        color: #5c5b5b9c;
+        text-align: center;
+    }
+
+    .notifications-list {
+        padding: 4px;
+        overflow-x: hidden;
+        width: 100%;
+        min-height: 60px;
+        max-height: 380px;
+
+        .notification {
+            display: flex;
+            justify-content: left;
+            align-items: flex-start;
+            margin-top: 12px;
+
+
+            .notification-image {
+                margin-top: 4px;
+                margin-right: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    height: auto;
+                    width: 40px;
+                }
+            }
+
+            .notification-body {
+                min-width: calc(100% - 44px);
+                max-width: calc(100% - 44px);
+                min-height: 50px;
+                padding-bottom: 12px;
+                border-bottom: 1px solid #7474749f;
+
+                .notification-header {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .notification-title {
+                        font-weight: 500;
+                        margin-top: 4px;
+                        max-width: 158px;
+                    }
+
+                    .notification-date {
+                        font-size: 80%;
+                        color: $gray_text_color;
+                        text-align: end;
+                    }
+                }
+
+                .notification-content {
+                    font-size: 95%;
+                    margin-top: 4px;
+                }
+
+            }
+        }
+    }
+
+    .notificaiton-box-footer {
+        border-top: 1px solid black;
+        margin-top: 12px;
+        margin: 4px;
+        padding-right: 12px;
+        font-size: 90%;
+        color: #7474749f;
+        text-align: end;
+    }
+
+}

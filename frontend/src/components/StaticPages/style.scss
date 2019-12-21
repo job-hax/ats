@@ -1,0 +1,63 @@
+@import "../App/style.scss";
+
+
+.static-page-container {
+    height: 96vh;
+
+    .header-area {
+        background-image: $banner_image;
+        background-size: 100% 100%;
+        height: 280px;
+        text-align: center;
+        padding-top: 120px;
+        padding-bottom: 80px;
+
+        h2 {
+            font-weight: bolder;
+            color: white;
+            margin-top: 0px;
+            font-size: 200%;
+        }
+
+        .legal-top {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 120px;
+
+            button {
+                color: white;
+                font-size: 12pt;
+                background: rgba(255, 255, 255, 0.05);
+                border: none;
+                border-radius: 50px;
+                padding: 15px 35px;
+                margin-top: 7.8%;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .logo {
+        width: 90px;
+    }
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+
+    .info-area {
+        margin-top: 50px;
+        margin-bottom: 100px;
+        text-align: left;
+        height: fit-content;
+        height: -moz-fit-content;
+        width: 80%;
+
+        h2 {
+            font-weight: bolder;
+            margin-top: 120px;
+            color: black;
+        }
+    }
+}

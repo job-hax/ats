@@ -1,0 +1,18 @@
+@import "../../../../../../../App/style.scss";
+
+.card-resume-container {
+  .resume-wrapper {
+    border: 1px solid black;
+    padding: 8px;
+    margin: 8px 4px 0;
+    border-radius: 8px;
+
+    .resume-item {
+      margin: 4px 0;
+
+      .resume-item-label {
+        font-weight: 700;
+      }
+    }
+  }
+}

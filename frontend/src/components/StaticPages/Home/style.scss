@@ -1,0 +1,384 @@
+@import "../../App/style.scss";
+
+
+.home-container {
+    background: white;
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 16pt;
+    font-weight: 400;
+    padding: 0px 24px;
+
+    .small-text {
+        font-size: 12pt;
+    }
+
+    .homepage-first-item {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+        margin: 0px 0px 0px 68px;
+        width: 100%;
+        height: auto;
+        padding-left: 24px;
+
+        .content-big-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 9.5%;
+            width: 30%;
+            min-width: 380px;
+            max-width: 30%;
+
+
+            .content-container {
+
+                h4 {
+                    min-width: 320px;
+                    max-width: 80%;
+                    font-size: 44px;
+                    line-height: 54px;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    min-width: 410px;
+                    font-size: 24px;
+                    margin-bottom: 28px;
+                }
+
+                .buttons-container {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 330px;
+
+                    .ant-btn {
+                        color: $primary_button_color;
+                        border: 2px solid $primary_button_color;
+                        animation-duration: 1.5s;
+                        animation-iteration-count: 1;
+                        transform-origin: bottom;
+                    }
+
+                    .ant-btn-primary {
+                        color: #fff !important;
+                        background-color: $primary_button_color;
+                        border: $primary_button_color !important;
+
+                    }
+
+                    .ant-btn:hover {
+                        color: rgb(64, 169, 255) !important;
+                        border-color: rgb(64, 169, 255) !important;
+                        animation-name: bounce;
+                        animation-timing-function: ease;
+                    }
+
+                    @keyframes bounce {
+                        0% {
+                            transform: scale(1, 1) translateY(0);
+                        }
+
+                        15% {
+                            transform: scale(1.1, .9) translateY(0);
+                        }
+
+                        40% {
+                            transform: scale(.9, 1.1) translateY(-12px);
+                        }
+
+                        60% {
+                            transform: scale(1, 1) translateY(0);
+                        }
+
+                        70% {
+                            transform: scale(1, 1) translateY(-5px);
+                        }
+
+                        74% {
+                            transform: scale(1, 1) translateY(0);
+                        }
+
+                        100% {
+                            transform: scale(1, 1) translateY(0);
+                        }
+                    }
+
+                    .ant-btn-primary:hover {
+                        color: #fff !important;
+                        background-color: rgb(64, 169, 255) !important;
+                        border: rgb(64, 169, 255) !important;
+
+                    }
+
+                    .ant-btn-lg {
+                        height: 48px;
+                        padding: 0px 28px;
+                        font-size: 18px;
+                        border-radius: 26px;
+
+                    }
+                }
+            }
+        }
+
+        .image-big-container {
+            display: flex;
+            justify-content: flex-end;
+            flex-grow: 1;
+            min-width: 65%;
+            max-width: 65%;
+
+            .image-container {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                height: auto;
+
+                .envelopes {
+                    z-index: 0;
+                    margin-left: 26%;
+                    max-width: 30%;
+                    height: auto;
+                }
+
+                .dashboard-main {
+                    z-index: 2;
+                    margin-left: 4%;
+                    margin-top: -3%;
+                    max-width: 100%;
+                    min-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    a:active {
+        color: $active_color;
+    }
+
+    .feature_area,
+    .how_it_works_area {
+        padding-left: 75px;
+        padding-right: 75px;
+    }
+
+    .feature_area {
+        margin-top: 80px;
+
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+
+            h2 {
+                font-size: 24pt;
+                font-weight: 700;
+                margin-bottom: 0;
+                color: black;
+            }
+        }
+
+        .features {
+            display: flex;
+            flex-direction: row;
+            margin-left: -30px;
+            margin-right: -30px;
+            overflow-y: hidden;
+
+            .feature {
+                margin: 2.08%;
+                background: white;
+                //border-radius: 20px;
+                padding: 30px;
+                padding-top: 50px;
+                min-width: 100px;
+                width: 300px;
+                flex-grow: 1;
+                text-align: center;
+                color: black;
+
+                img {
+                    width: 60%;
+                    max-width: 180px;
+                }
+
+                h4 {
+                    color: black;
+                    // text-align: left;
+                }
+
+                p {
+                    max-width: 380px;
+                    margin: auto;
+                    color: black;
+                    // text-align: left;
+                }
+            }
+        }
+    }
+
+    .how_it_works_area {
+        margin-bottom: 80px;
+
+        .ant-btn {
+            color: $primary_button_color;
+            border: $primary_button_color;
+        }
+
+        .ant-btn-primary {
+            color: #fff !important;
+            background-color: $primary_button_color;
+            border: $primary_button_color !important;
+
+        }
+
+        .ant-btn:hover {
+            background-color: rgb(64, 169, 255) !important;
+            border-color: rgb(64, 169, 255) !important;
+        }
+
+
+
+        .ant-btn-lg {
+            height: 34px;
+            padding: 0px 24px;
+            font-size: 15px;
+            border-radius: 26px;
+
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 80px;
+        }
+
+        img {
+            //border-radius: 20px;
+            margin-right: 60px;
+            width: 60%;
+            max-width: 60%;
+            flex-grow: 1;
+        }
+
+        .flipLR {
+            text-align: right;
+
+            img {
+                margin-right: 0;
+            }
+
+            h4 {
+                margin-left: 10%;
+                line-height: 40px;
+                margin-bottom: 16px;
+            }
+
+            p {
+                margin-left: auto;
+            }
+        }
+
+        .text-group {
+            min-width: 305px;
+            flex-grow: 1;
+            width: 30%;
+            max-width: 30%;
+        }
+
+        h4 {
+            font-size: 24pt;
+            font-weight: 600;
+            margin: 0;
+            max-width: 90%;
+            line-height: 40px;
+            margin-bottom: 16px;
+        }
+
+        p {}
+    }
+
+
+    .homepage-first-item {
+
+        @media only screen and (max-device-width : 800px) and (-webkit-min-device-pixel-ratio : 2) {
+            display: flex;
+            flex-direction: column;
+            margin: 0px;
+            padding: 0px;
+
+            .image-big-container {
+                padding: 32px 0px;
+                margin-left: -32px;
+                min-width: 130%;
+            }
+
+            .content-big-container {
+                width: 100%;
+                min-width: 100%;
+                margin-top: 5%;
+
+
+                .content-container {
+                    width: 100%;
+                    min-width: 100%;
+
+                    h4 {
+                        min-width: 90%;
+                    }
+
+                    p {
+                        min-width: 100%;
+                    }
+
+                    .buttons-container {
+                        width: 100%;
+                        max-width: 330px;
+
+                        @media only screen and (max-device-width : 360px) and (-webkit-min-device-pixel-ratio : 2) {
+
+                            .ant-btn-lg {
+                                height: 48px;
+                                padding: 0px 18px;
+                                font-size: 17px;
+                                border-radius: 26px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .how_it_works_area {
+
+        @media only screen and (max-device-width : 800px) and (-webkit-min-device-pixel-ratio : 2) {
+            padding: 0px;
+
+            .row {
+                display: flex;
+                flex-direction: column;
+                margin: 0px;
+                padding: 32px 0px;
+            }
+
+            img {
+                padding: 32px 0px;
+                margin: 0px;
+                min-width: 100%;
+                max-width: 100%;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .text-group {
+                min-width: 100%;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+}

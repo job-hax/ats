@@ -1,0 +1,15 @@
+requests
+Django>=2.1.6
+social-auth-app-django==3.1.0
+psycopg2==2.7.5
+psycopg2-binary==2.7.5
+django-rest-framework-social-oauth2==1.1.0
+djangorestframework
+social-auth-core==3.2.0
+google-api-python-client==1.7.4
+python-dateutil==2.7.5
+httplib2
+django-cors-headers
+oauth2client
+django-background-tasks==1.2.0
+beautifulsoup4==4.6.3
