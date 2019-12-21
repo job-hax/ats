@@ -55,10 +55,10 @@ class PositionCards extends Component {
           <img src="https://logo.clearbit.com/testout.com"></img>
         </div>
         <div className="position-card-detail">
-          <h3>{position.job}</h3>
+          <h3>{position.job.job_title}</h3>
           <div className="small-text all-caps">
-          {position.job}, {position.city}, {position.state.name}, {position.country.name} -{" "}
-            {position.department} - {position.job_type}
+          {position.job.job_title}, {position.city}, {position.state.name}, {position.country.name} -{" "}
+            {position.department} - {position.job.job_title_type}
           </div>
           <div className="small-text">
             Posted at: {this.formateDate(position.created_date)}
@@ -86,14 +86,14 @@ class PositionCards extends Component {
           </Button>
         </div>
         <Modal
-          title={position.job}
+          title={position.job.job_title}
           visible={this.state.modalVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
           <p className="small-text all-caps">
             {position.city}, {position.state.name}, {position.country.name} -{" "}
-            {position.department} - {position.job_type}
+            {position.department} - {position.job.job_title_type}
             <br />
             Posted at: {this.formateDate(position.created_date)}
           </p>

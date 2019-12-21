@@ -210,8 +210,10 @@ class Card extends PureComponent {
           {position && (
             <div id="jobTitle" className="card-job-position">
               {position.job}
+             
             </div>
           )}
+   
         </div>
         <div className="card-job-details">
           {(this.state.showSelect || this.state.isSelected) && (
