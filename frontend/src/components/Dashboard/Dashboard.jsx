@@ -365,7 +365,7 @@ class Dashboard extends Component {
       application_status: { id: statuses[columnName].id },
       company_object: { company: name },
       is_rejected: false,
-      position: { job: { job_title } },
+      position: job_title,
       is_changed: "added"
     };
     let insertedItemColumn = this.state[columnName].slice();
