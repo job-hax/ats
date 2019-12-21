@@ -1,5 +1,5 @@
 # Custom
-frontend/src/config/
+frontend/src/config/config.js
 frontend/node_modules
 frontend/*.idea
 frontend/build
