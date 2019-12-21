@@ -45,7 +45,7 @@ class Applicant extends Component {
             return {
               ...item,
               full_name: `${item.first_name} ${item.last_name}`,
-              job_title: item.position.job.job_title,
+              job_title: item.position.job,
               apply_date: makeTimeBeautiful(item.apply_date),
               application_status: this.getApplicationStatus(item.application_status.value)
             };

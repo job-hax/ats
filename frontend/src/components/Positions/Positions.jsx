@@ -200,7 +200,7 @@ class Positions extends Component {
     this.setState({
       ...this.state,
       position_id: position.id,
-      job_title: position.job.job_title,
+      job_title: position.job,
       department: position.department,
       job_type: position.job.job_title_type,
       responsibilities: position.responsibilities,
@@ -225,7 +225,7 @@ class Positions extends Component {
           IS_CONSOLE_LOG_OPEN && console.log(response.data);
           let bufferPositionsList = [];
           response.data.data.forEach(position =>
-            bufferPositionsList.push(position.job.job_title_title)
+            bufferPositionsList.push(position.job)
           );
           this.setState({
             autoCompletePositionsData: bufferPositionsList
