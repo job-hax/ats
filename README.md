@@ -83,3 +83,5 @@ Confirm that Certbot worked:
 https://www.ssllabs.com/ssltest/
 
 Reference: https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx
+
+Create JobHax application:
