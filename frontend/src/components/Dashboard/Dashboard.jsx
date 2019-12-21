@@ -435,7 +435,7 @@ class Dashboard extends Component {
       queriedList = queriedList.filter(application => {
         return (
           application.company_object.company.toLowerCase().match(value.trim().toLowerCase()) ||
-          application.position.job_title.toLowerCase().match(value.trim().toLowerCase())
+          application.position.job.toLowerCase().match(value.trim().toLowerCase())
         );
       });
       IS_CONSOLE_LOG_OPEN && console.log(queriedList);

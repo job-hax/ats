@@ -16,7 +16,7 @@ class JobDetails extends React.Component {
       isPositionsEditing: false,
       isApplyDateEditing: false,
       companyName: this.props.card.company_object && this.props.card.company_object.company,
-      jobTitle: this.props.card.position && this.props.card.position.job.job_title,
+      jobTitle: this.props.card.position && this.props.card.position.job,
       apply_date: makeTimeBeautiful(this.props.card.apply_date, "date"),
       autoCompleteCompanyData: [],
       autoCompletePositionsData: []
@@ -46,7 +46,7 @@ class JobDetails extends React.Component {
       this.props.alert(3000, "error", "Position cannot be empty!");
       if (this.props.card.position) {
         this.setState({
-          jobTitle: this.props.card.position.job_title
+          jobTitle: this.props.card.position.job
         });
       }
     } else {
@@ -196,7 +196,7 @@ class JobDetails extends React.Component {
         if (response.data.success) {
           IS_CONSOLE_LOG_OPEN && console.log(response.data);
           let bufferPositionsList = [];
-          response.data.data.forEach(position => bufferPositionsList.push(position.job_title));
+          response.data.data.forEach(position => bufferPositionsList.push(position.job));
           this.setState({
             autoCompletePositionsData: bufferPositionsList
           });

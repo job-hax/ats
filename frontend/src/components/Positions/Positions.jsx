@@ -200,7 +200,7 @@ class Positions extends Component {
     this.setState({
       ...this.state,
       position_id: position.id,
-      job_title: position.job.job_title,
+      job_title: position.job,
       department: position.department,
       job_type: position.job_type,
       responsibilities: position.responsibilities,
@@ -495,7 +495,7 @@ class Positions extends Component {
                     </div>
                     <div class="form-group">
                       <div className="info-content-body-item-label">
-                        Responsibilities
+                        Job Description
                       </div>
                       <TextArea
                         rows={4}

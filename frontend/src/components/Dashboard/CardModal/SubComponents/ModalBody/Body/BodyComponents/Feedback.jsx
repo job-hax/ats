@@ -106,7 +106,7 @@ class Feedback extends React.Component {
                     className="no-data"
                     style={{ paddingTop: 80, textAlign: "center" }}
                   >
-                    No feedbacks entered for {card.position.job_title} position
+                    No feedbacks entered for {card.position.job} position
                     at {card.company_object.company}
                   </div>
                 )}

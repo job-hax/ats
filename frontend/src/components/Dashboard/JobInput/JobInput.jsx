@@ -94,10 +94,10 @@ class JobInput extends PureComponent {
 
   renderOption(position) {
     return (
-      <Option key={position.id} text={position.job.job_title}>
+      <Option key={position.id} text={position.job}>
         <div className="global-search-item">
           <span className="global-search-item-count">id: {position.id} </span>
-          <span className="global-search-item-desc">{position.job.job_title}</span>
+          <span className="global-search-item-desc">{position.job}</span>
         </div>
       </Option>
     );

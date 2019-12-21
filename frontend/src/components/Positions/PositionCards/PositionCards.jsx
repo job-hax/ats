@@ -55,9 +55,9 @@ class PositionCards extends Component {
           <img src="https://logo.clearbit.com/testout.com"></img>
         </div>
         <div className="position-card-detail">
-          <h3>{position.job.job_title}</h3>
+          <h3>{position.job}</h3>
           <div className="small-text all-caps">
-            {position.city}, {position.state.name}, {position.country.name} -{" "}
+          {position.job}, {position.city}, {position.state.name}, {position.country.name} -{" "}
             {position.department} - {position.job_type}
           </div>
           <div className="small-text">
@@ -66,11 +66,11 @@ class PositionCards extends Component {
         </div>
         <div className="position-card-button">
           <Button
-            style={{borderColor: "green"}}
+            style={{borderColor: "steelblue"}}
             onClick={this.showModal}
             // className="btn-view-edit"
           >
-            LEARN MORE
+            Learn More
           </Button>
           <Button
             className="btn-view-edit"
@@ -86,7 +86,7 @@ class PositionCards extends Component {
           </Button>
         </div>
         <Modal
-          title={position.job.job_title}
+          title={position.job}
           visible={this.state.modalVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
@@ -97,10 +97,12 @@ class PositionCards extends Component {
             <br />
             Posted at: {this.formateDate(position.created_date)}
           </p>
-          <h4>RESPONSIBILITES:</h4>
+          <h4>Job Description:</h4>
           <p>{position.responsibilities}</p>
-          <h4>REQUIREMENTS:</h4>
+          <h4>Requirements:</h4>
           <p>{position.requirements}</p>
+          
+          
         </Modal>
       </div>
     );
