@@ -14,7 +14,7 @@ class JobPositionSerializer(serializers.ModelSerializer):
 
 
 class PositionDetailSerializer(serializers.ModelSerializer):
-    job = JobPositionSerializer(many=False, read_only=True)
+    # job = JobPositionSerializer(many=False, read_only=False)
     state = StateSerializer(many=False, read_only=True)
     country = CountrySerializer(many=False, read_only=True)
 

@@ -39,12 +39,15 @@ def company_positions(request):
         department = request.GET.get('department')
         job_type = request.GET.get('type')
         if q is not None:
-            jobs = JobPosition.objects.filter(job_title__icontains=q)
+           # jobs = JobPosition.objects.filter(job_title__icontains=q)
             positions = PositionDetail.objects.filter(
-                company_id=company_id, is_deleted=False, job__in=jobs).order_by("-updated_date")
+                company_id=company_id, is_deleted=False, job__icontains=q).order_by("-updated_date")
+       
         else:
             positions = PositionDetail.objects.filter(
                 company_id=company_id, is_deleted=False).order_by("-updated_date")
+        
+          
         if department is not None:
             positions = positions.filter(department=department)
         if job_type is not None:
@@ -62,18 +65,18 @@ def company_positions(request):
         job_type = body["job_type"]
         city = body["city"]
         company_id = int(body["company_id"])
-        job = JobPosition.objects.get(job_title=job_title)
+        #job = JobPosition.objects.get(job_title=job_title)
+        job=job_title
         state = State.objects.get(pk=body["state_id"])
         country = Country.objects.get(pk=body["country_id"])
         company = Company.objects.get(pk=body["company_id"])
-
+        print(job_title)
         new_position = PositionDetail(job=job, responsibilities=responsibilities, requirements=requirements,
                                       department=department, job_type=job_type, city=city, country=country, state=state, company=company)
+       
         new_position.save()
         return JsonResponse(
-            create_response(
-                data=PositionDetailSerializer(instance=new_position, many=False, context={'user': request.user}).data),
-            safe=False)
+            create_response(data=PositionDetailSerializer(instance=new_position, many=False, context={'user': request.user}).data),safe=False)
     elif request.method == "DELETE":
         position_id = body["position_id"]
         position = PositionDetail.objects.get(pk=position_id)
@@ -83,6 +86,7 @@ def company_positions(request):
     elif request.method == "PATCH":
         position_id = body["position_id"]
         position = PositionDetail.objects.get(pk=position_id)
+        job= body.get('job_title')
         responsibilities = body.get('responsibilities')
         requirements = body.get('requirements')
         department = body.get('department')
@@ -93,6 +97,8 @@ def company_positions(request):
 
         if responsibilities is not None:
             position.responsibilities = responsibilities
+        if job is not None:
+            position.job = job
         if requirements is not None:
             position.requirements = requirements
         if department is not None:

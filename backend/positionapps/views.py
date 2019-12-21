@@ -55,21 +55,20 @@ def position_applications(request):
         job_applications_list = PositionApplicationSerializer(instance=user_job_apps, many=True, context={
             'user': request.user}).data
         return JsonResponse(create_response(data=job_applications_list), safe=False)
-    elif request.method == "POST":
+    elif request.method == "POST": 
         position_id = body['position_id']
         company = body['company']
         application_date = body['application_date']
         status = int(body['status_id'])
         first_name = body['first_name']
         last_name = body['last_name']
-
         jt = PositionDetail.objects.get(pk=position_id)
         jc = get_or_create_company(company)
-
         job_application = PositionApplication(
             position=jt, company_object=jc, first_name=first_name, last_name=last_name, apply_date=application_date, user=request.user)
         job_application.application_status = ApplicationStatus.objects.get(
             pk=status)
+        print('normal')
         job_application.save()
         return JsonResponse(
             create_response(

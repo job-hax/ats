@@ -22,7 +22,7 @@ class ApplicationStatusSerializer(serializers.ModelSerializer):
 
 class PositionApplicationSerializer(serializers.ModelSerializer):
     application_status = ApplicationStatusSerializer(read_only=True)
-    position = PositionDetailSerializer(read_only=True)
+    position = PositionDetailSerializer(read_only=False)
     company_object = serializers.SerializerMethodField()
 
     def get_company_object(self, obj):

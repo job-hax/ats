@@ -16,8 +16,9 @@ class JobPosition(models.Model):
 
 
 class PositionDetail(models.Model):
-    job = models.ForeignKey(
-        JobPosition, on_delete=models.SET_NULL, null=True, blank=False)
+    # job = models.ForeignKey(
+    #     JobPosition, on_delete=models.SET_NULL, null=True, blank=False)
+    job=models.TextField(max_length=200, null=True, blank=True)
     responsibilities = models.TextField(blank=False)
     requirements = models.TextField(blank=False)
     department = models.CharField(max_length=200, blank=False)
