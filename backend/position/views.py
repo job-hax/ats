@@ -38,16 +38,18 @@ def company_positions(request):
         q = request.GET.get('q')
         department = request.GET.get('department')
         job_type = request.GET.get('type')
-        if q is not None:
+        if q is not None and company_id is not None:
            # jobs = JobPosition.objects.filter(job_title__icontains=q)
             positions = PositionDetail.objects.filter(
                 company_id=company_id, is_deleted=False, job__icontains=q).order_by("-updated_date")
-       
-        else:
+        elif  q is  None and company_id is  None:
+            positions = PositionDetail.objects.filter(is_deleted=False).order_by("-updated_date")
+        elif  q is  None and company_id is not None:
             positions = PositionDetail.objects.filter(
                 company_id=company_id, is_deleted=False).order_by("-updated_date")
-        
-          
+        elif q is  not None and company_id is None:
+            positions = PositionDetail.objects.filter(is_deleted=False, job__icontains=q).order_by("-updated_date")
+            
         if department is not None:
             positions = positions.filter(department=department)
         if job_type is not None:
