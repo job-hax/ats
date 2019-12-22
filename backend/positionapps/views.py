@@ -68,7 +68,6 @@ def position_applications(request):
             position=jt, company_object=jc, first_name=first_name, last_name=last_name, apply_date=application_date, user=request.user)
         job_application.application_status = ApplicationStatus.objects.get(
             pk=status)
-        print('normal')
         job_application.save()
         return JsonResponse(
             create_response(
