@@ -1,5 +1,4 @@
-export const apiRoot = "http://0.0.0.0:8001";
-//"https://jobposting-be.jobhax.com"; //"https://backend.jobhax.com"; //"http://10.0.0.75:8000"; "http://0.0.0.0:8001";
+export const apiRoot = "http://0.0.0.0:8001"; //"http://10.0.0.75:8000"; "http://0.0.0.0:8001";
 
 //USER REQUESTS//
 export const USERS = type => `${apiRoot}/api/users/${type}/`;
