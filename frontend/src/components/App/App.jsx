@@ -164,7 +164,7 @@ class App extends Component {
             let profilePhotoUrl =
               response.data.data.profile_photo != ("" || null)
                 ? apiRoot + response.data.data.profile_photo
-                : "../../../src/assets/icons/User@3x.png";
+                : "../../src/assets/icons/User@3x.png";
             this.setState(
               {
                 active: true,
