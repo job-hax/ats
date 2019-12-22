@@ -14,6 +14,8 @@ import os
 import environ
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base = environ.Path(__file__)-2 # two folders back (/a/b/ - 2 = /)
+environ.Env.read_env(env_file=base('.env')) # reading .env file
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
