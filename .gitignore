@@ -6,7 +6,7 @@ frontend/build
 frontend/dist
 .vscode/tasks.json
 .DS_Store
-
+frontend/.babelrc
 # Byte-compiled / optimized / DLL files
 backend/**/__pycache__
 **/__pycache__
@@ -17,6 +17,10 @@ backend/*$py.class
 backend/*.so
 
 # Distribution / packaging
+backend/inapp_error.log
+backend/debug.log
+backend/media/
+backend/static/
 backend/.Python
 backend/build/
 backend/develop-eggs/
