@@ -72,7 +72,6 @@ def company_positions(request):
         state = State.objects.get(pk=body["state_id"])
         country = Country.objects.get(pk=body["country_id"])
         company = Company.objects.get(pk=body["company_id"])
-        print(job_title)
         new_position = PositionDetail(job=job, responsibilities=responsibilities, requirements=requirements,
                                       department=department, job_type=job_type, city=city, country=country, state=state, company=company)
        
