@@ -6,6 +6,7 @@ from positionapps import views
 urlpatterns = [
     path('statuses/', views.statuses),
     path('', views.position_applications),
+    path('apply/', views.apply),
     path('<int:pos_app_pk>/statusHistory/', views.status_history),
     path('<int:pos_app_pk>/notes/', views.notes),
     path('<int:pos_app_pk>/contacts/', views.contacts),

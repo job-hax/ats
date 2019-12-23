@@ -12,12 +12,14 @@ from django.core.mail import EmailMessage
 from django.db.models import Q
 from django.utils.crypto import get_random_string
 
+from positionapps.models import PositionApplication
 from utils.error_codes import ResponseCodes
 from utils.logger import log
 from django.core.files import File
 import uuid
 from urllib.request import urlretrieve
 from urllib.error import HTTPError
+import mimetypes
 
 User = get_user_model()
 
@@ -45,6 +47,55 @@ def generate_activation_key(username):
     chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
     secret_key = get_random_string(20, chars)
     return hashlib.sha256((secret_key + username).encode('utf-8')).hexdigest()
+
+
+@background(schedule=1)
+def send_applicant_email_to_admins(job_application_id):
+    job_application = PositionApplication.objects.get(id=job_application_id)
+    profiles = User.objects.filter(Q(is_staff=True) | Q(company=job_application.position.company, user_type__name='Employer'))
+    subject = '[JobHax Platform] New application received - ' + job_application.position.job
+    body = '''<html>
+                Hello!<br>
+                <br>
+                A new application received. You can find the details below;<br><br><br>
+                <table style="height: 198px;" width="281">
+                    <tbody>
+                        <tr style="height: 23px;">
+                        <td style="height: 23px; width: 243.933px;"><b>First Name</b></td>
+                        <td style="height: 23px; width: 36.0667px;">''' + job_application.first_name + '''</td>
+                        </tr>
+                        <tr style="height: 23.5px;">
+                        <td style="height: 23.5px; width: 243.933px;"><b>Last Name</b></td>
+                        <td style="height: 23.5px; width: 36.0667px;">''' + job_application.last_name + '''</td>
+                        </tr>
+                        <tr style="height: 23px;">
+                        <td style="height: 23px; width: 243.933px;"><b>Email Address</b></td>
+                        <td style="height: 23px; width: 36.0667px;">''' + job_application.email + '''</td>
+                        </tr>
+                        <tr style="height: 23px;">
+                        <td style="height: 23px; width: 243.933px;"><b>Phone Number</b></td>
+                        <td style="height: 23px; width: 36.0667px;">''' + job_application.phone_number + '''</td>
+                        </tr>
+                        <tr style="height: 23px;">
+                        <td style="height: 23px; width: 243.933px;"><b>Reference</b></td>
+                        <td style="height: 23px; width: 36.0667px;">''' + job_application.reference + '''</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </html>'''
+    email_addresses = []
+    for profile in profiles:
+        email_addresses.append(profile.email)
+
+    email = EmailMessage(subject, body, to=email_addresses)
+    email.content_subtype = "html"  # this is the crucial part
+
+    content_type = mimetypes.guess_type(job_application.candidate_resume.name)[0]  # change is here <<<
+    email.attach_file(job_application.candidate_resume.path, content_type)  # <<< change is here also
+    try:
+        email.send()
+    except Exception as e:
+        log(traceback.format_exception(None, e, e.__traceback__), 'e')
 
 
 @background(schedule=1)
