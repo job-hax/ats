@@ -11,18 +11,19 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+import environ
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base = environ.Path(__file__)-2 # two folders back (/a/b/ - 2 = /)
+environ.Env.read_env(env_file=base('.env')) # reading .env file
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&d&5*(y9+fk!x$+48^k=-&uy-+gcm9crt+xc_*)l94f#xk7*qk'
-
+SECRET_KEY = os.environ.get('SECRET_KEY','123456') 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG','False')
 
 # can change the ip for local testing
 ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost', '10.0.0.75']
@@ -186,11 +187,11 @@ WSGI_APPLICATION = 'JH_RestAPI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jobhaxdb',
-        'USER': 'jobhaxdbuser',
-        'PASSWORD': '123456',
-        'HOST': 'localhost'
-    }
+        'NAME': os.environ.get('DB_NAME','jobhaxdb'),
+        'USER': os.environ.get('DB_USER','jobhaxdbuser'),
+        'PASSWORD': os.environ.get('DB_PWD',''),
+        'HOST': os.environ.get('DB_HOST','localhost')
+        }
 }
 
 # Password validation
