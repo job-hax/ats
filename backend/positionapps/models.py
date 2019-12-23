@@ -39,6 +39,10 @@ class PositionApplication(models.Model):
         Company, on_delete=models.SET_NULL, null=True, related_name='%(class)s_company')
     first_name = models.CharField(max_length=50, null=True, blank=True)
     last_name = models.CharField(max_length=50, null=True, blank=True)
+    reference = models.CharField(max_length=50, null=True, blank=True)
+    email = models.EmailField(('email address'), null=True, blank=True)
+    phone_number = models.CharField(max_length=17, blank=True)  # validators should be a list
+    candidate_resume = models.FileField(blank=False, null=True)
     apply_date = models.DateTimeField(blank=True)
     rejected_date = models.DateTimeField(null=True, blank=True)
     deleted_date = models.DateTimeField(null=True, blank=True)
