@@ -1,4 +1,6 @@
 from datetime import datetime as dt
+
+from django.db.models import Q
 from django.utils import timezone
 import datetime
 
@@ -74,27 +76,13 @@ def position_applications(request):
         return JsonResponse(create_response(data=None, success=False, error_code=ResponseCodes.verify_recaptcha_failed),
                             safe=False)
     if request.method == "GET":
-        timestamp = request.GET.get('timestamp')
-        if timestamp is not None:
-            timestamp = int(timestamp) / 1000
-            if timestamp is None:
-                return JsonResponse(create_response(data=None, success=False, error_code=ResponseCodes.invalid_parameters))
-            profile = request.user
-            time = dt.fromtimestamp(int(timestamp))
-            user_job_apps = PositionApplication.objects.filter(
-                created_date__gte=time)
-            job_application_list = PositionApplicationSerializer(instance=user_job_apps, many=True, context={
-                'user': request.user}).data
-            response = {'data': job_application_list,
-                        'synching': profile.synching}
-            return JsonResponse(create_response(data=response), safe=False)
         status_id = request.GET.get('status_id')
         if status_id is not None:
-            user_job_apps = PositionApplication.objects.filter(
-                application_status__id=status_id, user__id=request.user.id, is_deleted=False).order_by('-apply_date')
+            user_job_apps = PositionApplication.objects.filter(Q(user__id=request.user.id) | Q(position__company=request.user.company),
+                application_status__id=status_id, is_deleted=False).order_by('-apply_date')
         else:
-            user_job_apps = PositionApplication.objects.filter(
-                user_id=request.user.id, is_deleted=False).order_by('-apply_date')
+            user_job_apps = PositionApplication.objects.filter(Q(user__id=request.user.id) | Q(position__company=request.user.company),
+                is_deleted=False).order_by('-apply_date')
         job_applications_list = PositionApplicationSerializer(instance=user_job_apps, many=True, context={
             'user': request.user}).data
         return JsonResponse(create_response(data=job_applications_list), safe=False)
