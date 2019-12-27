@@ -1,6 +1,7 @@
 import React from "react";
 import { AutoComplete, DatePicker, Select, Timeline } from "antd";
 import moment from "moment";
+import parse from "html-react-parser";
 
 import { makeTimeBeautiful, IS_CONSOLE_LOG_OPEN } from "../../../../../../../utils/constants/constants.js";
 import { axiosCaptcha } from "../../../../../../../utils/api/fetch_api.js";
@@ -277,16 +278,16 @@ class JobDetails extends React.Component {
   }
 
   generatePositionDetail() {
+    const description = this.props.card.position.responsibilities;
+    const requirements = this.props.card.position.requirements;
     return (
       <div className="info">
         <label>
           <div>Detail</div>
         </label>
         <div className="text">
-          <h4>RESPONSIBILITEIS:</h4>
-          <p>{this.props.card.position.responsibilities}</p>
-          <h4>REQUIREMENTS:</h4>
-          <p>{this.props.card.position.requirements}</p>
+          <p>{parse(description)}</p>
+          <p>{parse(requirements)}</p>
         </div>
       </div>
     );

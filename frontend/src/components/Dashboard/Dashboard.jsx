@@ -215,6 +215,13 @@ class Dashboard extends Component {
             this.applied.push(application);
           }
           break;
+        case 6:
+          if (application.is_rejected) {
+            this.appliedRejected.push(application);
+          } else {
+            this.applied.push(application);
+          }
+          break;
         case 3:
           if (application.is_rejected) {
             this.phoneScreenRejected.push(application);

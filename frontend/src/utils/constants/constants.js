@@ -89,7 +89,12 @@ export const TRENDING_STATUS_OPTIONS = [
     id: 5,
     value: "Offer",
     param: "&status_id=5"
-  }
+  },
+  {
+    id: 6,
+    value: "Applied",
+    param: "&status_id=6"
+  },
 ];
 
 export const TRENDING_YEAR_OPTIONS = [
