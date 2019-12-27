@@ -1,10 +1,15 @@
 from datetime import datetime as dt
+
+from django.db.models import Q
 from django.utils import timezone
+import datetime
 
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
+import uuid
+
 
 from company.utils import get_or_create_company
 from position.utils import get_or_insert_position
@@ -23,6 +28,46 @@ User = get_user_model()
 
 
 @csrf_exempt
+@api_view(["POST"])
+def apply(request):
+    body = request.data
+    position_id = body['position_id']
+
+    first_name = body['first_name']
+    last_name = body['last_name']
+    email = body['email']
+    phone_number = body['phone_number']
+    reference = body['reference']
+    candidate_resume = body['candidate_resume']
+
+    jt = PositionDetail.objects.get(pk=position_id)
+
+    job_application = PositionApplication(
+        position=jt, company_object=jt.company, first_name=first_name, last_name=last_name, email=email,
+        apply_date=datetime.datetime.today(),
+        reference=reference, phone_number=phone_number,
+        user=None)
+
+    ext = candidate_resume.name.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    name = candidate_resume.name.replace(('.' + ext), '')
+    filename = name + '_' + filename
+    job_application.candidate_resume.save(filename, candidate_resume, save=True)
+
+    if ApplicationStatus.objects.filter(default=True).count() == 0:
+        status = ApplicationStatus(value='Applied', default=True)
+        status.save()
+    else:
+        status = ApplicationStatus.objects.get(default=True)
+    job_application.application_status = status
+
+    job_application.save()
+
+    utils.send_applicant_email_to_admins(job_application.id)
+    return JsonResponse(create_response(data=None), safe=False)
+
+
+@csrf_exempt
 @api_view(["GET", "POST", "PUT", "PATCH", "DELETE"])
 def position_applications(request):
     body = request.data
@@ -31,27 +76,13 @@ def position_applications(request):
         return JsonResponse(create_response(data=None, success=False, error_code=ResponseCodes.verify_recaptcha_failed),
                             safe=False)
     if request.method == "GET":
-        timestamp = request.GET.get('timestamp')
-        if timestamp is not None:
-            timestamp = int(timestamp) / 1000
-            if timestamp is None:
-                return JsonResponse(create_response(data=None, success=False, error_code=ResponseCodes.invalid_parameters))
-            profile = request.user
-            time = dt.fromtimestamp(int(timestamp))
-            user_job_apps = PositionApplication.objects.filter(
-                created_date__gte=time)
-            job_application_list = PositionApplicationSerializer(instance=user_job_apps, many=True, context={
-                'user': request.user}).data
-            response = {'data': job_application_list,
-                        'synching': profile.synching}
-            return JsonResponse(create_response(data=response), safe=False)
         status_id = request.GET.get('status_id')
         if status_id is not None:
-            user_job_apps = PositionApplication.objects.filter(
-                application_status__id=status_id, user__id=request.user.id, is_deleted=False).order_by('-apply_date')
+            user_job_apps = PositionApplication.objects.filter(Q(user__id=request.user.id) | Q(position__company=request.user.company),
+                application_status__id=status_id, is_deleted=False).order_by('-apply_date')
         else:
-            user_job_apps = PositionApplication.objects.filter(
-                user_id=request.user.id, is_deleted=False).order_by('-apply_date')
+            user_job_apps = PositionApplication.objects.filter(Q(user__id=request.user.id) | Q(position__company=request.user.company),
+                is_deleted=False).order_by('-apply_date')
         job_applications_list = PositionApplicationSerializer(instance=user_job_apps, many=True, context={
             'user': request.user}).data
         return JsonResponse(create_response(data=job_applications_list), safe=False)
