@@ -187,10 +187,10 @@ def position_applications(request):
             user_job_apps = PositionApplication.objects.filter(
                 pk__in=job_application_ids)
             for user_job_app in user_job_apps:
-                if user_job_app.user == request.user:
-                    user_job_app.deleted_date = timezone.now()
-                    user_job_app.is_deleted = True
-                    user_job_app.save()
+                #if user_job_app.user == request.user:
+                user_job_app.deleted_date = timezone.now()
+                user_job_app.is_deleted = True
+                user_job_app.save()
             return JsonResponse(create_response(data=None), safe=False)
 
 
