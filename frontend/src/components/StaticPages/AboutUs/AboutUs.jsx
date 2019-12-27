@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Footer from "../../Partials/Footer/Footer.jsx";
-import { apiRoot } from "../../../utils/constants/endpoints.js";
+import { apiRoot, jtsApiRoot } from "../../../utils/constants/endpoints.js";
 import parse from "html-react-parser";
 import { Carousel } from "antd";
 
@@ -96,7 +96,7 @@ class AboutUs extends Component {
     const media = list.map(photo => {
       return (
         <div key={list.indexOf(photo)} className="carousel-image">
-          <img src={apiRoot + photo} />
+          <img src={jtsApiRoot + photo} />
         </div>
       );
     });
