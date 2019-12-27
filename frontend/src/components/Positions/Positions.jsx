@@ -225,7 +225,7 @@ class Positions extends Component {
           IS_CONSOLE_LOG_OPEN && console.log(response.data);
           let bufferPositionsList = [];
           response.data.data.forEach(position =>
-            bufferPositionsList.push(position.job)
+            bufferPositionsList.push(position.job_title)
           );
           this.setState({
             autoCompletePositionsData: bufferPositionsList
@@ -299,7 +299,7 @@ class Positions extends Component {
             response.data.data.forEach(element =>
               bufferList.push(element.job_title)
             );
-            this.setState({ positionAutoCompleteData: bufferList });
+            this.setState({ autoCompletePositionsData: bufferList });
           } else if (type === "countries") {
             let countriesList = response.data.data;
             this.setState({ countryList: countriesList });
