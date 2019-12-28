@@ -5,6 +5,7 @@ import Contacts from "./BodyComponents/Contacts.jsx";
 import Notes from "./BodyComponents/Notes.jsx";
 import Feedback from "./BodyComponents/Feedback.jsx";
 import Resume from "./BodyComponents/Resume/Resume.jsx";
+import CandidateDetails from "./BodyComponents/CandidateDetails.jsx";
 
 class BodyComponents extends React.Component {
   constructor(props) {
@@ -13,7 +14,14 @@ class BodyComponents extends React.Component {
 
   displaySelector() {
     switch (this.props.displaying) {
-      case "Overview":
+      case "Contact":
+        return (
+          <CandidateDetails
+            card={this.props.card}
+            alert={this.props.alert}
+          />
+        );
+      case "Position":
         return (
           <JobDetails
             card={this.props.card}

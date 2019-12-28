@@ -60,10 +60,51 @@ class Resume extends React.Component {
     });
   }
 
-  generateFiles() {
+  generateInfo({label, keys, resume}) {
+    console.log(label, keys, resume, typeof resume[keys[0]])
+    if(keys.length === 1 && resume[keys[0]] === (null || '' || undefined)){return null}
+    return (
+      <div className="info">
+        <div className="label">{label}</div>
+        {keys.map(field => (
+          typeof resume[field] === 'string' ?
+        <div className="text">{resume[field]}</div>
+        : typeof resume[field] === 'object' ?
+        resume[field].map(item => (
+          <div className="text">{item}</div>
+        )) : null
+        ))}
+      </div>
+    );
+  }
+
+  generateResumeDetails(resume){
+
+    const display_dict = {
+      'summary': ['summary'],
+      'skills': ['skills'],
+      'experience': ['position','company'],
+      'education': ['school', 'degree'],
+      'certification': ['certification'],
+      'language': ['language'],
+      'contacts': ['contact', 'linkedin']
+    }
+
+    return Object.keys(display_dict).map((key, index) => (
+      <div id={index}>{this.generateInfo({label:key, keys:display_dict[key], resume:resume})}</div>
+    ))
+  }
+
+  generateFiles() {    
     return (
       <div>
-        <Upload
+        {this.state.resumes.map(resume => (
+          <div id={resume.id} style={{marginBottom:20}}>
+            {this.generateResumeDetails(resume)}
+          </div>
+        ))}
+        <div >
+         <Upload
           action={file => this.handleUpload(file)}
           fileList={this.state.files}
           showUploadList={{ showRemoveIcon: true, showDownloadIcon: true }}
@@ -72,36 +113,8 @@ class Resume extends React.Component {
             <Icon type="upload" /> Upload
           </Button>
         </Upload>
-        {this.state.resumes.map(item => (
-          <div id={item.id} className="resume-wrapper">
-            <div className="resume-item">
-              <div className="resume-item-label">SUMMARY:</div>
-              <div className="resume-item-text">{item.summary}</div>
-            </div>
-            <div className="resume-item">
-              <div className="resume-item-label">SKILLS:</div>
-              <div className="resume-item-text">{item.skills.join(", ")}</div>
-            </div>
-            <div className="resume-item">
-              <div className="resume-item-label">CONTACT:</div>
-              <div className="resume-item-text">{item.contact.join(", ")}</div>
-            </div>
-            <div className="resume-item">
-              <div className="resume-item-label">COMPANY:</div>
-              <div className="resume-item-text">
-                {item.company} - {item.position}
-              </div>
-            </div>
-            <div className="resume-item">
-              <div className="resume-item-label">CERTIFICATIONS:</div>
-              <div className="resume-item-text">{item.certifications.join(", ")}</div>
-            </div>
-            <div className="resume-item">
-              <div className="resume-item-label">LANGUAGES:</div>
-              <div className="resume-item-text">{item.languages.join(", ")}</div>
-            </div>
-          </div>
-        ))}
+        </div>
+
       </div>
     );
   }
