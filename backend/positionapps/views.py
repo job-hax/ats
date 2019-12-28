@@ -3,6 +3,8 @@ from datetime import datetime as dt
 from django.db.models import Q
 from django.utils import timezone
 import datetime
+import requests
+import json
 
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
@@ -16,6 +18,7 @@ from position.utils import get_or_insert_position
 from position.models import PositionDetail
 from utils import utils
 from utils.error_codes import ResponseCodes
+from utils.logger import log
 from utils.generic_json_creator import create_response
 from .models import PositionApplication, Contact, ApplicationStatus, StatusHistory, Feedback, PositionApplicationNote
 from .serializers import ApplicationStatusSerializer
@@ -23,6 +26,7 @@ from .serializers import PositionApplicationNoteSerializer
 from .serializers import PositionApplicationSerializer, ContactSerializer
 from .serializers import StatusHistorySerializer
 from .serializers import FeedbackSerializer
+from cvparser.views import resume_parser
 
 User = get_user_model()
 
@@ -31,6 +35,7 @@ User = get_user_model()
 @api_view(["POST"])
 def apply(request):
     body = request.data
+    headers = {'Authorization': request.headers['Authorization']}
     position_id = body['position_id']
 
     first_name = body['first_name']
@@ -64,6 +69,21 @@ def apply(request):
     job_application.save()
 
     utils.send_applicant_email_to_admins(job_application.id)
+
+    pos_app_id = {
+        'pos_app_id': job_application.id
+    }
+
+    parse_request = {
+        'resume': job_application.candidate_resume.open()
+    }
+
+    response = requests.post('http://localhost:8001/api/parser/',
+                            data=pos_app_id, files=parse_request, headers=headers)
+    #json_res = json.loads(response.text)
+
+
+
     return JsonResponse(create_response(data=None), safe=False)
 
 

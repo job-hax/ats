@@ -13,3 +13,4 @@ django-cors-headers
 oauth2client
 django-background-tasks==1.2.0
 beautifulsoup4==4.6.3
+django-environ

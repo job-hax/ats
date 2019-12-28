@@ -44,8 +44,10 @@ def resume_parser(request):
             files = {'resume': post_data}
             response = requests.post(
                 'http://127.0.0.1:8002/api/parser/', files=files)
+           
             if response.status_code == requests.codes.ok:
                 json_res = json.loads(response.text)
+             
                 # fill the model
                 resume = Resume()
                 resume.user = request.user
