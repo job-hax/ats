@@ -36,7 +36,8 @@ class PositionApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = PositionApplication
         fields = (
-            'id', 'first_name', 'last_name', 'application_status', 'position', 'company_object', 'apply_date', 'is_rejected')
+            'id', 'first_name', 'last_name', 'application_status', 
+            'position', 'company_object', 'apply_date', 'is_rejected', 'email','phone_number','reference')
 
 
 class PositionApplicationNoteSerializer(serializers.ModelSerializer):
