@@ -143,7 +143,7 @@ def position_applications(request):
                 return JsonResponse(create_response(success=False, error_code=ResponseCodes.record_not_found), safe=False)
             else:
                 for user_job_app in user_job_apps:
-                    if user_job_app.user == request.user:
+                    if user_job_app.user == request.user or user_job_app.user is None:
                         if status_id is None:
                             user_job_app.is_rejected = rejected
                         else:
@@ -261,7 +261,7 @@ def contacts(request, pos_app_pk):
             return JsonResponse(create_response(data=None, success=False, error_code=ResponseCodes.invalid_parameters),
                                 safe=False)
         user_job_app = PositionApplication.objects.get(pk=pos_app_pk)
-        if user_job_app.user == request.user:
+        if user_job_app.user == request.user or user_job_app.user is None:
             phone_number = body.get('phone_number')
             linkedin_url = body.get('linkedin_url')
             description = body.get('description')
@@ -374,7 +374,7 @@ def notes(request, pos_app_pk):
                                 safe=False)
         else:
             user_job_app = PositionApplication.objects.get(pk=pos_app_pk)
-            if user_job_app.user == request.user:
+            if user_job_app.user == request.user or user_job_app.user is None:
                 note = PositionApplicationNote(
                     pos_app=user_job_app, description=description)
                 note.save()
@@ -393,7 +393,7 @@ def notes(request, pos_app_pk):
                 create_response(data=None, success=False, error_code=ResponseCodes.invalid_parameters), safe=False)
         else:
             note = PositionApplicationNote.objects.get(pk=jobapp_note_id)
-            if note.pos_app.user == request.user:
+            if note.pos_app.user == request.user or note.pos_app.user is None:
                 note.description = description
                 note.updated_date = timezone.now()
                 note.save()
@@ -412,7 +412,7 @@ def notes(request, pos_app_pk):
         else:
             user_job_app_note = PositionApplicationNote.objects.get(
                 pk=jobapp_note_id)
-            if user_job_app_note.pos_app.user == request.user:
+            if user_job_app_note.pos_app.user == request.user or user_job_app_note.pos_app.user is None:
                 user_job_app_note.delete()
                 return JsonResponse(create_response(data=None, success=True, error_code=ResponseCodes.success), safe=False)
             else:
