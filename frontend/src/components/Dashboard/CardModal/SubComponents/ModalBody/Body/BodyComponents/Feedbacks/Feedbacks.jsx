@@ -33,7 +33,7 @@ class Feedbacks extends React.Component {
           <div className="header-bottom">
             <div className="date">
               {feedback.interview_round},
-              {makeTimeBeautiful(feedback.interview_date, "dateandtime")}
+              {feedback.interview_date && makeTimeBeautiful(feedback.interview_date, "dateandtime")}
             </div>
             <div style={{ marginTop: "-16px" }}>
               <Rate tooltips={desc} disabled value={feedback.rate} />
